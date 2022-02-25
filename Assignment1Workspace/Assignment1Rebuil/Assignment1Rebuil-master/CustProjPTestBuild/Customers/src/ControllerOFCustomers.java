@@ -2,11 +2,12 @@ import java.util.List;
 
 
 import java.util.Scanner;
-
+import java.io.FileNotFoundException;
 
 public class ControllerOFCustomers {
 
 	private setService atMyservice;
+	private setService atMyservice2;
 	private viewer view;
 	private CustomersDao dao;
 	private Customer Customer;
@@ -17,30 +18,26 @@ public class ControllerOFCustomers {
 
 public ControllerOFCustomers(viewer view2, setService atMyservice2) {
 	this.view=view2;
-	this.atMyservice=atMyservice2;	// TODO Auto-generated constructor stub
+	this.atMyservice=atMyservice2;
+//	this.atMyservice2=atMyservice3;
+	// TODO Auto-generated constructor stub
 	}
-public void ControllerOfCustomers(viewer view2, setService service2){
+public void ControllerOFCustomers(viewer view2, setService service2){
 	this.view=view2;
 	this.atMyservice=service2;
 }
-
-public void ControllerOfCustomers(CustomersDao dao) {
+public void ControllerOFCustomers(CustomersDao dao) {
 	this.dao=dao;
 }
-public void ControllerOfCustomers(Customer Customer) {
+public void ControllerOFCustomers(Customer Customer) {
 	this.Customer=Customer;
 }
-public void ControllerOfCustomers(viewer view2) {
+public void ControllerOFCustomers(viewer view2) {
 	this.view=view2;
 }
-public void run() {
-	
-	System.out.print("Customer?");
+public void run()  {
+	System.out.println("entr");
 	SetToJsonORService.setCust(sc);
-	System.out.print("Id?");
-	//SetToJsonORService.SetId(sc);
 	atMyservice.addACustomer();
 }
-
-
 }

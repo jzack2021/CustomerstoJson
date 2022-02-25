@@ -5,5 +5,9 @@ public interface GenericCustSetDAO<IDType, T extends Serializable>  {
 
 	
 	void add(IDType id, T entity);
+
+	List<T> list();
+	
+	
 	
 }

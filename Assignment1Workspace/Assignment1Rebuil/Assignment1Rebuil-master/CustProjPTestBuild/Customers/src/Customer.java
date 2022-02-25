@@ -1,21 +1,19 @@
 import java.io.Serializable;
 
 public class Customer implements Serializable {
-
-	private Long id = 4L;
+	private static final long serialVersionUID = 7526472295622776147L;
+	 private Long id;
+	 private static Long COUNTER = 0L;
 	private String Customer;
 	
 	
 	
 	public Customer(){
 		Customer = new String("");
-		id = getId();
+		id = generateId();
 	}
 	
-	public void SetCustomer(){
-		Customer = new String("");
-		id = getId();
-	}
+
 	
 	public Customer(String Customer2){
 		Customer=Customer2;
@@ -27,23 +25,21 @@ public class Customer implements Serializable {
 		this.id = id;
 	}
 	
-	public Long getID() {
+	public Long getId() {
 		return id;
 	}
-	
-	public String getCustomer() {
-		return Customer;
-	}
+
 	
 	public void SetId(Long id) {
 		this.id=id;
 	}
+
 	
-	public void SetCustomer(String Customer) {
-		this.Customer=new String("Customer");
+	public void setCustomer(String Customer) {
+		this.Customer = Customer;
 	}
 	
-	public Long getId(){
-		return id++;
+	public Long generateId(){
+		return COUNTER++;
 	}
 }

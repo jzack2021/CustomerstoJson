@@ -1,25 +1,20 @@
 
 import java.util.Scanner;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 
 
 
-	public interface setService {
+	public interface setService{
+
+		public void addAnItem();	
 
 public void addACustomer();
 
 public void setCust();
 
-	/**
-	 * return the list of CItems from the repository
-	 
-    /**
-     * Calculate the maximum ID value of elements in the repository     
-     * @return the maximum id of a CItem in the repository
-     */
-
-	
+public void maxCItemId();
 }
 	
 	
