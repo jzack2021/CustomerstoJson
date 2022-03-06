@@ -1,0 +1,26 @@
+{
+  "1": {
+    "id": 1,
+    "customerFirst": "josh",
+    "customerLast": "styes",
+    "customerZip": 0
+  },
+  "2": {
+    "id": 2,
+    "customerFirst": "josh",
+    "customerLast": "styes",
+    "customerZip": 323
+  },
+  "3": {
+    "id": 3,
+    "customerFirst": "josh",
+    "customerLast": "styes",
+    "customerZip": 345345
+  },
+  "4": {
+    "id": 4,
+    "customerFirst": "frank",
+    "customerLast": "cha",
+    "customerZip": 34543
+  }
+}

@@ -49,13 +49,13 @@ public class viewer {
     System.out.println();
     System.out.println("****Enter the number denoting the action " +
                        "to perform:");
-    System.out.println("******ADD Customer   " + ADDONE);
-    System.out.println("****Create New Item In Inventory   " + TWO);
-    System.out.println("*****Add +1 to Item Stock   " + THREE);
-    System.out.println("****Place Order   " + FOUR);
-    System.out.println("*****Display Orders of Specific Customer   " + FIVEL);
-    System.out.println("****Display Incentury   " + SIX);
-    System.out.println("*****Check It, Customers   " + SEVEN);
+    System.out.println("******ADD Customer to Customer.json   " + ADDONE);
+    System.out.println("******ADD Item  to Items.json    " + TWO);
+    System.out.println("*****Add Item+Customer Order Object to Orders    " + THREE);
+    System.out.println("****List Customers    " + FOUR);
+   // System.out.println("*****Remove Customer   " + FIVEL);
+   // System.out.println("****Display Incentury   " + SIX);
+   // System.out.println("*****Check It, Customers   " + SEVEN);
     System.out.println("****Exit........................" + EXIT);
     
   }

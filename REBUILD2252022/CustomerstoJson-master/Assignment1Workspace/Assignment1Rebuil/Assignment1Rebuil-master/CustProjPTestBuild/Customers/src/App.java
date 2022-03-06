@@ -9,11 +9,18 @@ public class App {
 
 		
 		setService atMyservice = new SetToJsonORService();
-		setService atMyservice2 = new SetToJsonORService();
+		setService ItemsService = new SetToJsonORService();
+	//	setService atMyservice2 = new SetToJsonORService();
 		viewer view = new viewer();
+		ControllerofItems Itemcontroller = new ControllerofItems(view, ItemsService);
 		ControllerOFCustomers controller = new ControllerOFCustomers(view, atMyservice);
+		GenericController Base = new GenericController(view, atMyservice, ItemsService);
+	
 		
-		controller.run();
+		Base.provideCItemAccess();
+		
+		//ResponseButton Button = new ResponseButton();
+		//controller.run();
 		
 		
 		

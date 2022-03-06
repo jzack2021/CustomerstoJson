@@ -7,36 +7,50 @@ public class Orders implements Serializable {
     private Long id3;
     private static Long COUNTER = 0L;
 	
-    private String  Customer;
+    private String  customerFirst;
+    private String customerLast;
+    private Integer customerZip;
 	private String Items;
 	private String Order;
 	
 	
 	public Orders(){
-		Customer = new String("");
+		customerFirst = new String("");
+		customerLast = new String("");
+		customerZip=0;
 		Items = new String("");
-		id3 = generateId();
+		id3 = generateId3();
 	}
 	
 
-	public Orders(String Customer3, String Items3){
-		Customer=Customer3;
+	public Orders(String CustomerFirst3, String customerLast3, String Items3, Integer Zip){
+		customerFirst=CustomerFirst3;
+		customerLast = customerLast3;
+		this.customerZip = Zip;
 		Items=Items3;
-		id3 = generateId();
+		id3 = generateId3();
 	}
 	
-	public Orders(Long id3, String Customer3, String Items3){
-		Customer=Customer3;
+	public Orders(Long id3, String CustomerFirst, String CustomerLast, Integer Zip, String Items3){
+		customerFirst=CustomerFirst;
+		customerLast=CustomerLast;
+		customerZip = Zip;
 		Items=Items3;
-		this.id3 = id3;
+		this.id3=id3;
 	}
 	
 	public Long getId3() {
 		return id3;
 	}
 	
-	public String getCustomer() {
-		return Customer;
+	public String getCustomerFirst() {
+		return customerFirst;
+	}
+	public String getCustomerLast() {
+		return customerLast;
+	}
+	public Integer getCustomerZip() {
+		return customerZip;
 	}
 	public String getItem() {
 		return Items;
@@ -48,12 +62,20 @@ public class Orders implements Serializable {
 	public String setItem(String Items3) {
 		return Items;
 	}
-	public String SetCustomer(String Customer3) {
-		return Customer;
+	public String SetCustomerFirst(String Customer3) {
+		return customerFirst;
 	}
-	public void SetOrder(Long id3, String Customer3, String Items3) {
+	public String SetCustomerLast(String CustomerLast) {
+		return customerLast;
+	}
+	public Integer SetZip(Integer Zip) {
+		return customerZip;
+	}
+	public void SetOrder(Long id3, String CustomerFirst, String CustomerLast, Integer Zip, String Items3) {
 		this.id3=id3;
-		this.Customer=Customer3;
+		this.customerFirst=CustomerFirst;
+		this.customerLast=CustomerLast;
+		this.customerZip=Zip;
 		this.Items=Items3;
 	}
 	
@@ -61,7 +83,7 @@ public class Orders implements Serializable {
 		this.Order=new String("Order");
 	}
 	
-	public Long generateId(){
+	public Long generateId3(){
 		return COUNTER++;
 	}
 }

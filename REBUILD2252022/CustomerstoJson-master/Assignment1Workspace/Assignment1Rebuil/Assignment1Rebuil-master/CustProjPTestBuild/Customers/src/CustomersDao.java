@@ -46,6 +46,9 @@ public class CustomersDao {
 	{
 		CustomersDao.add(entity.getId(), entity);
 	}
+	public void remove(Customer entity) {
+		CustomersDao.remove(entity.getId(), entity);
+	}
 	public List<Customer> list() {
 		// TODO Auto-generated method stub
 		 return CustomersDao.list();

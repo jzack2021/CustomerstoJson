@@ -77,10 +77,11 @@ public class JsonDao<IDType, T extends Serializable> implements GenericCustSetDA
 	 * @param id
 	 *            id of the entity to be removed with Type IDType
 	 */
+	
 	@Override
-	public void remove(IDType id) {
+	public void remove(IDType id, T entity) {
 		readFileIntoMap();
-		entityMap.remove(id);
+		entityMap.remove(id, entity);
 		writeMapToFile();
 	}
 

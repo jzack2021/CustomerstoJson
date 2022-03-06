@@ -14,6 +14,8 @@ public void addAnItem();
 
 public void addAnOrder();
 
+public void removeACustomer();
+
 	/**
 	 * return the list of CItems from the repository
 	 
