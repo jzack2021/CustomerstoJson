@@ -5,7 +5,7 @@ import java.awt.*;
 import java.applet.Applet;
 import java.awt.event.*;
 public class GenericController {
-
+private JSONINFOPARCING parser;
 	private setService atMyservice;
 	private viewer view;
 	private CustomersDao dao;
@@ -76,7 +76,7 @@ public void executeChoice (int choice) throws FileNotFoundException{
     }
     if (choice == viewer.FOUR)
     {//view customers
-      	SetToJsonORService.printCustomers();
+    	JSONINFOPARCING.printCustomers();
       	//SetToJsonORService.printC();
     }
     

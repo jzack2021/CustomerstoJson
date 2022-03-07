@@ -19,6 +19,9 @@ public class App {
 		
 		Base.provideCItemAccess();
 		
+		
+		JSONINFOPARCING parser = new JSONINFOPARCING();
+		
 		//ResponseButton Button = new ResponseButton();
 		//controller.run();
 		

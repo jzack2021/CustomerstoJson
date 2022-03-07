@@ -38,6 +38,8 @@ import java.util.Scanner;
  */
 public class SetToJsonORService implements setService {
 
+	
+	
 	ItemsDao dao2;
 	CustomersDao dao;
 	static OrdersDao dao3;
@@ -230,150 +232,7 @@ public void addAnOrder() {
 		}
 	}
  	
- 	public static void printCustomers()throws FileNotFoundException{
-		
-		 var is = new FileInputStream("C:\\Users\\jzack\\REBUILD2252022\\CustomerstoJson-master\\Assignment1Workspace\\Assignment1Rebuil\\Assignment1Rebuil-master\\CustProjPTestBuild\\Customers\\src\\Customers.json");
-		 var factory = Json.createParserFactory(null);
-		 var parser = factory.createParser(is, StandardCharsets.UTF_8);
-		 
-		 
-		 
-	
-	    if (!parser.hasNext() && parser.next() != JsonParser.Event.START_ARRAY) {
-
-            return;
-        }
-	    
-	    
-	    
-    
-        while (parser.hasNext()) {
-       	 
-       	var event = parser.next();
-           
-       	   
-       	   
-       	   if (event == JsonParser.Event.START_OBJECT) {
-
-       
-            	 
-            	 
-            	 
-            	 while (parser.hasNext()) {
-
-                      event = parser.next();
-                      
-                      
-                      
-
-                      if (event == JsonParser.Event.KEY_NAME) {
-                   	  
-                    	  
-                    	  
-                    	  
-                   switch (parser.getString()) {
-                   
-                   case "customerFirst":
-                	   
-                   parser.next();
-                   	
-                   String key = parser.getString();
-                   	
-                    
-                   System.out.printf(key);
-                   	
-                   System.out.println("");
-                	
-                   break;
-                   }
-        
-    }
-       }
-	
-              }
-        } 
  	
- 
-         
-     }
- 
- 	public void parceToCustomer()throws FileNotFoundException{
-     
-    	
- 		 var is = new FileInputStream("C:\\Users\\jzack\\REBUILD2252022\\CustomerstoJson-master\\Assignment1Workspace\\Assignment1Rebuil\\Assignment1Rebuil-master\\CustProjPTestBuild\\Customers\\src\\Customers.json");
-		 var factory = Json.createParserFactory(null);
-		 var parser = factory.createParser(is, StandardCharsets.UTF_8);
-		 
-		 
-		 
-	
-	    if (!parser.hasNext() && parser.next() != JsonParser.Event.START_ARRAY) {
-
-            return;
-        }
-	    
-	    
-	    
-    
-        while (parser.hasNext()) {
-       	 
-       	var event = parser.next();
-           
-       	   
-       	   
-       	   if (event == JsonParser.Event.START_OBJECT) {
-
-       
-            	 
-       		System.out.println("Enter name");
-      	  String name = in.next();	
-            	 
-            	 while (parser.hasNext()) {
-
-                      event = parser.next();
-                      
-                      
-                      
-
-                      if (event == JsonParser.Event.KEY_NAME) {
-                   	  
-                    	  
-                    	    
-                   switch (parser.getString()) {
-                   
-                   case "customerFirst":
-                	   
-                   parser.next();
-                   	
-                   String key = parser.getString();
-                  	
-                 	if (name.equalsIgnoreCase(key)) {
-                 		
-                 		
-                 		Customer aCustomer = new Customer(ItemID, name, parser.next().toString(),parser.getInt());
-                 		
-                 	 		dao.remove(aCustomer);
-                 	 	
-                 		
-                 	}
-                   
-                   
-                 //  System.out.println("");
-                	
-                   break;
-                   }
-        
-    }
-       }
-	
-              }
-        } 
- 	
- 
-         
-     }
-
-	
  }
        
 
