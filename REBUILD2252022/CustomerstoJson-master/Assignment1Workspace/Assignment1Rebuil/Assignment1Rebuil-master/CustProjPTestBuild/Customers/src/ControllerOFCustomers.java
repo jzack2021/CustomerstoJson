@@ -39,24 +39,6 @@ public void ControllerOfCustomers(viewer view2) {
 
 
 
-public void run() throws FileNotFoundException {
-	//provideCItemAccess();
-	//System.out.print("Customer?");
-	//SetToJsonORService.setCust(sc);
-	
-    
-	//SetToJsonORService.SetId(sc);
-	//atMyservice.addACustomer();
-	
-	//System.out.print("Item?");
-	//SetToJsonORService.setItem(sc);
-	//atMyservice.addAnItem();
-   // SetToJsonORService.setOrder(sc);
-	//SetToJsonORService.findCustomer();
-	
-	//atMyservice.addAnOrder();
-	
-}
 
 
 }

@@ -1,30 +1,23 @@
 import javax.swing.*;
-import java.io.FileReader;
-
-import java.io.FileReader;
 import javax.json.Json;
 import javax.json.stream.JsonParser;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Map;
 import java.io.*;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Scanner;
 import javax.json.Json;
 import javax.json.stream.JsonParser;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
 import java.util.Map;
 import java.io.*;
 import java.util.ArrayList;
-import java.io.IOException;
 import java.net.URL;
 import java.util.List;
 import java.util.Scanner;
@@ -36,7 +29,7 @@ import java.util.Scanner;
  * application. This organization helps support service oriented architectures.
  *
  */
-public class SetToJsonORService implements setService {
+public class SetToJsonORService<IDType, T extends Serializable> implements setService {
 
 	
 	
@@ -47,7 +40,7 @@ public class SetToJsonORService implements setService {
 	  static String  customerFirst;
 	    static String customerLast;
 	    static Integer customerZip;
-		
+	    static Long id;
 	static String Items;
 	static 
 	Scanner in = new Scanner(System.in);
@@ -56,6 +49,59 @@ public class SetToJsonORService implements setService {
 	/**
 	 * Default Constructor creates a default CItemDao object
 	 */
+
+	public SetToJsonORService() {
+		this.dao = new CustomersDao();
+		this.dao2=new ItemsDao();
+		this.dao3=new OrdersDao();
+		
+	}
+	
+	public SetToJsonORService(CustomersDao dao) {
+		this.dao = dao;
+	}
+	
+	
+	public SetToJsonORService(ItemsDao dao2) {
+	this.dao2 = dao2;
+	}
+
+
+	public SetToJsonORService(OrdersDao dao3) {
+	this.dao3=dao3;
+	}
+
+
+
+	public static String setItem(Scanner sc) {
+		System.out.flush();
+	
+	      System.out.println("Enter Item");
+	      Items = sc.next();
+	     
+	    return Items;
+	}
+	
+	
+	public  static OrdersDao setOrder(Scanner sc) {
+		
+	//	System.out.println("Item");
+		//	Items = sc.next();
+	
+	//	System.out.println("Customer First");
+	
+	//	customerFirst=sc.next();
+	
+		return dao3;
+		
+		
+		
+		
+	}
+	
+
+
+
 
 	public static String setCustFirstName(Scanner sc) {
 		System.out.flush();
@@ -84,40 +130,6 @@ public class SetToJsonORService implements setService {
 		      customerZip = sc.nextInt();
 		      return customerZip;
 	}
-	public SetToJsonORService() {
-		this.dao = new CustomersDao();
-		this.dao2=new ItemsDao();
-		this.dao3=new OrdersDao();
-		
-	}
-	public static String setItem(Scanner sc) {
-		System.out.flush();
-	
-	      System.out.println("Enter Item");
-	      Items = sc.next();
-	     
-	    return Items;
-	}
-	public  static OrdersDao setOrder(Scanner sc) {
-		
-	//	System.out.println("Item");
-		//	Items = sc.next();
-	
-	//	System.out.println("Customer First");
-	
-	//	customerFirst=sc.next();
-	
-		return dao3;
-		
-		
-		
-		
-	}
-	
-
-
-
-    
 
 	
     
@@ -129,16 +141,22 @@ public class SetToJsonORService implements setService {
 	 * @param dao
 	 *            Data Access Object to use in the service
 	 */
-	public SetToJsonORService(CustomersDao dao) {
-		this.dao = dao;
-	}
-public SetToJsonORService(ItemsDao dao2) {
-	this.dao2 = dao2;
-}
+	
+	
 
-public SetToJsonORService(OrdersDao dao3) {
-	this.dao3=dao3;
-}
+
+
+//public void removeACustomer() {
+	
+	
+		
+	
+	//this.Customer=Customer;
+	///dao.remove(aCustomer);
+	
+//}
+
+
 
 
 	/**
@@ -152,11 +170,7 @@ public SetToJsonORService(OrdersDao dao3) {
 		dao.add(aCustomer);
 		
 	}
-public void removeACustomer() {
-	
-	
-	
-}
+
 	public void addAnItem() 
 	{
 		Long ItemID = this.maxCItemId2() + 1;
@@ -173,8 +187,11 @@ public void addAnOrder() {
 	
 	dao3.add(anOrder);
 	
+	
 }
 	
+
+
 	/**
 	 * Calculate the maximum ID value of elements in the repository
 	 * 

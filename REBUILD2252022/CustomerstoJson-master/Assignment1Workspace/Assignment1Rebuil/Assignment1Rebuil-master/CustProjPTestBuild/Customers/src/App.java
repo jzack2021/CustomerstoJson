@@ -7,7 +7,7 @@ public class App {
 	public static void main(String[] args)throws FileNotFoundException {
 		// TODO Auto-generated method stub
 
-		
+
 		setService atMyservice = new SetToJsonORService();
 		setService ItemsService = new SetToJsonORService();
 	//	setService atMyservice2 = new SetToJsonORService();
@@ -18,9 +18,11 @@ public class App {
 	
 		
 		Base.provideCItemAccess();
-		
-		
 		JSONINFOPARCING parser = new JSONINFOPARCING();
+		
+		
+	
+		
 		
 		//ResponseButton Button = new ResponseButton();
 		//controller.run();

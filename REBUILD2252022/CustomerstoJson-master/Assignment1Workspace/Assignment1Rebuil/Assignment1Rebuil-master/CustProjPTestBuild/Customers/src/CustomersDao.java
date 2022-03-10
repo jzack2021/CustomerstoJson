@@ -3,7 +3,6 @@ import java.util.Map;
 
 import com.google.gson.reflect.TypeToken;
 import java.lang.reflect.Type;
-
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.stream.JsonReader;
@@ -14,11 +13,20 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.stream.JsonReader;
 
-public class CustomersDao {
+
+
+
+
+import java.io.*;
+import java.lang.reflect.Type;
+public class CustomersDao{
 
 	private GenericCustSetDAO<Long,Customer> CustomersDao;
-	
+	Customer Customer;
 	
 	public CustomersDao() {
 		Type t = new TypeToken<Map<Long, Customer>>(){}.getType(); 
@@ -42,17 +50,28 @@ public class CustomersDao {
 		//return CustomersDao;
 	//}
 	
+public void setCustomerDao(GenericCustSetDAO<Long,Customer> dao){
+	this.CustomersDao=dao;
+}
+	
 	public void add(Customer entity)
 	{
 		CustomersDao.add(entity.getId(), entity);
 	}
-	public void remove(Customer entity) {
-		CustomersDao.remove(entity.getId(), entity);
+	public void remove(Long id) {
+		Type t = new TypeToken<Map<Long, Customer>>(){}.getType(); 
+		CustomersDao.remove(id, Customer);
+	}
+	public Customer find (Long id) {
+		CustomersDao.find(id);
+		return Customer;
 	}
 	public List<Customer> list() {
 		// TODO Auto-generated method stub
 		 return CustomersDao.list();
 	}
+
+
 	
 
 	

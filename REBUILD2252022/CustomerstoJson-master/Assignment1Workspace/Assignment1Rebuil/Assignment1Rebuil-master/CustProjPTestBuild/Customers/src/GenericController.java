@@ -82,14 +82,19 @@ public void executeChoice (int choice) throws FileNotFoundException{
     
    // goign to be working on this vv gotta get my parcing right on JSON-P to eexcute the remove from the JSON file
     
-   // if (choice == viewer.FIVEL)
-    //{
-      //	SetToJsonORService.printCustomers();
+   if (choice == viewer.FIVEL)
+   {
+	  
+	   
+	   
+	  JSONINFOPARCING jsoninfoparcing = new JSONINFOPARCING();
+	jsoninfoparcing.parsetoRemove();
+	//  atMyservice.removeACustomer();
       	//SetToJsonORService setToJsonORService = new SetToJsonORService();
 		//setToJsonORService.parceToCustomer();
       	//atMyservice.removeACustomer();
       	//SetToJsonORService.printC();
-    //}
+   }
     else if (choice == viewer.EXIT)
       System.out.println("Goodbye.");
   }
