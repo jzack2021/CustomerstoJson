@@ -30,5 +30,17 @@
   "8": {
     "id2": 8,
     "Items": "bike"
+  },
+  "9": {
+    "id2": 9,
+    "Items": "gem"
+  },
+  "10": {
+    "id2": 10,
+    "Items": "floater"
+  },
+  "11": {
+    "id2": 11,
+    "Items": "skateboard"
   }
 }

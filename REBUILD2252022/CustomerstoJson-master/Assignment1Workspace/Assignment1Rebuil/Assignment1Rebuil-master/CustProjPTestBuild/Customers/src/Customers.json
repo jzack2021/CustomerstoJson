@@ -1,44 +1,14 @@
 {
   "1": {
     "id": 1,
-    "customerFirst": "josh",
-    "customerLast": "styes",
-    "customerZip": 0
+    "customerFirst": "Josh",
+    "customerLast": "Styes",
+    "customerZip": 4102
   },
   "2": {
     "id": 2,
-    "customerFirst": "josh",
-    "customerLast": "styes",
-    "customerZip": 323
-  },
-  "3": {
-    "id": 3,
-    "customerFirst": "josh",
-    "customerLast": "styes",
-    "customerZip": 345345
-  },
-  "4": {
-    "id": 4,
     "customerFirst": "frank",
-    "customerLast": "cha",
-    "customerZip": 34543
-  },
-  "5": {
-    "id": 5,
-    "customerFirst": "josh",
-    "customerLast": "styles",
-    "customerZip": 4353
-  },
-  "6": {
-    "id": 6,
-    "customerFirst": "joe",
-    "customerLast": "styee",
-    "customerZip": 3443
-  },
-  "7": {
-    "id": 7,
-    "customerFirst": "sasdfadfsa",
-    "customerLast": "dsfdfasdfsa",
-    "customerZip": 34342234
+    "customerLast": "cash",
+    "customerZip": 2345
   }
 }

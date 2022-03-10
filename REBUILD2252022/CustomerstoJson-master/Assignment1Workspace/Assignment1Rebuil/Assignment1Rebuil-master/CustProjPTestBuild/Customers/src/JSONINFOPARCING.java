@@ -265,15 +265,17 @@ public class JSONINFOPARCING {
                                     		  	setService atMyservice2 = new SetToJsonORService();
                                     		 
                                     		 String filename = "Customers.json";
-                                    		  	
+                                    	
                                     		  dao.remove(id);
+                                    		  
                                     		  	
-                                    		  	System.out.println("Customer good");
+                                    		  	System.out.println("Customer goremoved");
                                     	  }
                                     	  else {
                                     		  System.out.println("Not a vailid customer");
                                     	  }     	
                          
+                                   customerFirstbool=false;
                                    
                                              
                                    break;

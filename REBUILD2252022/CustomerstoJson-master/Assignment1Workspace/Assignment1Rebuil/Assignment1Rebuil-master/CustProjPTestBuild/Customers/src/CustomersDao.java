@@ -59,8 +59,8 @@ public void setCustomerDao(GenericCustSetDAO<Long,Customer> dao){
 		CustomersDao.add(entity.getId(), entity);
 	}
 	public void remove(Long id) {
-		Type t = new TypeToken<Map<Long, Customer>>(){}.getType(); 
-		CustomersDao.remove(id, Customer);
+
+		CustomersDao.remove(id);
 	}
 	public Customer find (Long id) {
 		CustomersDao.find(id);

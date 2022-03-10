@@ -154,4 +154,30 @@ public class JsonDao<IDType, T extends Serializable> implements GenericCustSetDA
 			System.out.println("An error occurred writing back to file.");
 		}
 	}
+
+	@Override
+	public GenericCustSetDAO<Long, Customer> getCustomerDao() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void CustomersDao() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void remove(Long id) {
+		readFileIntoMap();
+	entityMap.remove(id);
+	writeMapToFile();
+		
+	}
+
+	@Override
+	public void setCustomerDao(GenericCustSetDAO<Long, Customer> dao) {
+		// TODO Auto-generated method stub
+		
+	}
 }
