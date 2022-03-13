@@ -18,8 +18,10 @@ public class viewer {
   
     
 	/** {@value #DISPLAYALL}  : Display CItem collection of items */
-    public static final int EXIT = 8;
-  
+    public static final int EIGHT = 8;
+    public static final int NINE = 9;
+    public static final int TEN =10;
+    public static final int ELEVEN=11;
     // Object to read menu choices
     private Scanner in; 
  
@@ -54,10 +56,12 @@ public class viewer {
     System.out.println("*****Add Item+Customer Order Object to Orders    " + THREE);
     System.out.println("****List Customers    " + FOUR);
     System.out.println("*****Remove Customer   " + FIVEL);
-   // System.out.println("****Display Incentury   " + SIX);
-   // System.out.println("*****Check It, Customers   " + SEVEN);
-    System.out.println("****Exit........................" + EXIT);
-    
+    System.out.println("****List Items  " + SIX);
+   System.out.println("*****Update Customer Info   " + SEVEN);
+    System.out.println("***List Orders.............  " + EIGHT);
+    System.out.println("***List Orders by Customer  " + NINE);
+    System.out.println("***Edit Order " + TEN);
+    System.out.println("***EXIT" + ELEVEN);
   }
 
   /**

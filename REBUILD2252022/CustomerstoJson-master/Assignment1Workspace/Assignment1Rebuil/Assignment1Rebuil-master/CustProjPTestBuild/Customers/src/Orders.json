@@ -12,5 +12,47 @@
     "customerLast": "larry",
     "customerZip": 4345,
     "Items": "hat"
+  },
+  "3": {
+    "id3": 3,
+    "customerFirst": "johs",
+    "customerLast": "styes",
+    "customerZip": 4553,
+    "Items": "car"
+  },
+  "4": {
+    "id3": 4,
+    "customerFirst": "hgghkghk",
+    "customerLast": "ghkgh",
+    "customerZip": 56568,
+    "Items": "hghghk"
+  },
+  "5": {
+    "id3": 5,
+    "customerFirst": "fdsfads",
+    "customerLast": "sffsa",
+    "customerZip": 34423,
+    "Items": "sfdfsd"
+  },
+  "6": {
+    "id3": 6,
+    "customerFirst": "josh",
+    "customerLast": "styles",
+    "customerZip": 234234,
+    "Items": "car"
+  },
+  "7": {
+    "id3": 7,
+    "customerFirst": "josh",
+    "customerLast": "styles",
+    "customerZip": 234234,
+    "Items": "bike"
+  },
+  "8": {
+    "id3": 8,
+    "customerFirst": "josh",
+    "customerLast": "styles",
+    "customerZip": 234234,
+    "Items": "sombrero"
   }
 }

@@ -11,7 +11,7 @@ public class Orders implements Serializable {
     private String customerLast;
     private Integer customerZip;
 	private String Items;
-	private String Order;
+	private String Orders;
 	
 	
 	public Orders(){
@@ -23,7 +23,7 @@ public class Orders implements Serializable {
 	}
 	
 
-	public Orders(String CustomerFirst3, String customerLast3, String Items3, Integer Zip){
+	public Orders(String CustomerFirst3, String customerLast3,Integer Zip, String Items3){
 		customerFirst=CustomerFirst3;
 		customerLast = customerLast3;
 		this.customerZip = Zip;
@@ -79,8 +79,8 @@ public class Orders implements Serializable {
 		this.Items=Items3;
 	}
 	
-	public void SetOrder(String Order) {
-		this.Order=new String("Order");
+	public void SetOrder(String Orders) {
+		this.Orders=new String("Orders");
 	}
 	
 	public Long generateId3(){

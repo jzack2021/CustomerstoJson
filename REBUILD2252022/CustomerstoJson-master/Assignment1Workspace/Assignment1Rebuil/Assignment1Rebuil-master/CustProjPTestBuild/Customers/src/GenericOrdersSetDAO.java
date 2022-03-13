@@ -8,6 +8,6 @@ public interface GenericOrdersSetDAO<IDType, T extends Serializable>  {
 
 	List<T> list();
 	
-	
+	void update(IDType id3, T entity);
 	
 }

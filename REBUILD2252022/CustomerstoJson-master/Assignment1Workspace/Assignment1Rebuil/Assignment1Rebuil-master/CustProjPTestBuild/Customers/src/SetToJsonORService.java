@@ -167,7 +167,7 @@ public class SetToJsonORService<IDType, T extends Serializable> implements setSe
 		Long ItemID = this.maxCItemId() + 1;
 	
 		Customer aCustomer = new Customer(ItemID, customerFirst, customerLast, customerZip);
-		dao.add(aCustomer);
+		dao.add(ItemID, aCustomer);
 		
 	}
 
@@ -185,7 +185,7 @@ public void addAnOrder() {
 	
 	Orders anOrder = new Orders (ItemID,customerFirst, customerLast, customerZip, Items );
 	
-	dao3.add(anOrder);
+	dao3.add(ItemID, anOrder);
 	
 	
 }

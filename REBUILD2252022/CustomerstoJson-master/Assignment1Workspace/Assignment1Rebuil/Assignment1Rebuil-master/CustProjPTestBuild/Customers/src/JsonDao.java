@@ -66,11 +66,11 @@ public class JsonDao<IDType, T extends Serializable> implements GenericCustSetDA
 	 */
 	
 	//@Override
-	public void update(IDType id, T entity) {
-		readFileIntoMap();
-		entityMap.put(id, entity);
-		writeMapToFile();
-	}
+	//public void update(IDType id, T entity) {
+	//	readFileIntoMap();
+	//	entityMap.put(id, entity);
+	//	writeMapToFile();
+	//}
 
 	/**
 	 * Remove an entity to the JsonDao
@@ -174,7 +174,13 @@ public class JsonDao<IDType, T extends Serializable> implements GenericCustSetDA
 	writeMapToFile();
 		
 	}
-
+	@Override
+	public void update(IDType id, T entity) {
+		readFileIntoMap();
+	entityMap.put(id, entity);
+	writeMapToFile();
+		
+	}
 	@Override
 	public void setCustomerDao(GenericCustSetDAO<Long, Customer> dao) {
 		// TODO Auto-generated method stub

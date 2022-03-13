@@ -3,13 +3,13 @@ import java.util.List;
 
 public interface GenericCustSetDAO<IDType, T extends Serializable>  {
 
-	public GenericCustSetDAO<Long,Customer> getCustomerDao();
+	public GenericCustSetDAO<IDType,Customer> getCustomerDao();
 	
 	void add(IDType id, T entity);
 
 	public void CustomersDao();
 	
-	
+	void update(IDType id, T entity);
 	
 	
 	void remove(Long id);
@@ -27,5 +27,7 @@ public interface GenericCustSetDAO<IDType, T extends Serializable>  {
 	 *            id of the entity to be removed with Type IDType
 	 */
 	void remove(IDType id, T entity);
+	
+	
 	
 }

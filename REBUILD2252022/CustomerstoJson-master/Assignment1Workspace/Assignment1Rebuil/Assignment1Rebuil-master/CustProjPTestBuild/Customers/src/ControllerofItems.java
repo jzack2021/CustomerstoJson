@@ -16,13 +16,13 @@ public class ControllerofItems {
 		this.ItemsService=ItemsService2;
 	}
 
-	public void ControllerOfCustomers(ItemsDao dao3) {
+	public void ControllerOfItems(ItemsDao dao3) {
 		this.dao2=dao3;
 	}
-	public void ControllerOfCustomers(Items Items) {
+	public void ControllerOfItems(Items Items) {
 		this.Items=Items;
 	}
-	public void ControllerOfCustomers(viewer view2) {
+	public void ControllerOfItems(viewer view2) {
 		this.view=view2;
 	}
 

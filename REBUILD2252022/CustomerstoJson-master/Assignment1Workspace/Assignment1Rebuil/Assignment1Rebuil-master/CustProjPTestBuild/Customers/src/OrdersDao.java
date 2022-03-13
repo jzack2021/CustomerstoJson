@@ -15,8 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class OrdersDao {
-	private GenericOrdersSetDAO<Long,Orders> OrdersDao;
+public class OrdersDao<IDType, T extends Serializable> {
+	private GenericOrdersSetDAO<IDType,Orders> OrdersDao;
 	
 	
 	public OrdersDao() {
@@ -29,21 +29,24 @@ public class OrdersDao {
 		OrdersDao = new JsonDao<>(filename,t); 
 	}
 	
-	public OrdersDao(GenericOrdersSetDAO<Long,Orders> dao) {
+	public OrdersDao(GenericOrdersSetDAO<IDType,Orders> dao) {
 		
 		OrdersDao = dao;
 		
 	}
-	public GenericOrdersSetDAO<Long,Orders> getOrdersDao() {
+	public GenericOrdersSetDAO<IDType,Orders> getOrdersDao() {
 		return OrdersDao;
 	}
 	//public CustomersDao<Long,Customer> getCustomersDao() {
 		//return CustomersDao;
 	//}
 	
-	public void add(Orders entity)
+	public void add(IDType id, Orders entity)
 	{
-		OrdersDao.add(entity.getId3(), entity);
+		OrdersDao.add(id, entity);
+	}
+	public void update (IDType id, Orders entity) {
+		OrdersDao.update(id, entity);
 	}
 
 	public List<Orders> list() {

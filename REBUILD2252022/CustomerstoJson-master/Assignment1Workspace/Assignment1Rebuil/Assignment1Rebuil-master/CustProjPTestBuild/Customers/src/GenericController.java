@@ -17,7 +17,7 @@ private JSONINFOPARCING parser;
 	String nameS, ageS;
 	static Long g;
 	private setService ItemsService;
-
+private setService OrdersService;
 	private ItemsDao dao2;
 	private Items Items;
 	
@@ -26,16 +26,18 @@ private JSONINFOPARCING parser;
 		this.view=view2;
 		this.atMyservice=atMyservice2;	// TODO Auto-generated constructor stub
 		}
-	public GenericController(viewer view2, setService atMyservice2, setService ItemsService2) {
+	public GenericController(viewer view2, setService atMyservice2, setService ItemsService2, setService OrdersService2) {
 		this.view=view2;
 		this.atMyservice=atMyservice2;	
 		this.ItemsService=ItemsService2;// TODO Auto-generated constructor stub
-		}
+	this.OrdersService=OrdersService2;	
+	}
 
 public void provideCItemAccess()throws FileNotFoundException
 {
     int choice = viewer.NO_CHOICE;
-    while (choice != viewer.EXIT) {
+    while (choice != viewer.ELEVEN
+    	) {
       view.displayMenu();
       choice = view.readIntWithPrompt("Enter choice: ");
       executeChoice(choice);
@@ -72,7 +74,7 @@ public void executeChoice (int choice) throws FileNotFoundException{
      	   SetToJsonORService.setCustZip(sc);
      	  SetToJsonORService.setItem(sc);
    	   SetToJsonORService.setOrder(sc);
-   	   atMyservice.addAnOrder();
+   	   OrdersService.addAnOrder();
     }
     if (choice == viewer.FOUR)
     {//view customers
@@ -84,21 +86,44 @@ public void executeChoice (int choice) throws FileNotFoundException{
     
    if (choice == viewer.FIVEL)
    {
-	  
-	   
+	  JSONINFOPARCING.printCustomers();
+	   System.out.println("^^LIST OF CUSTOMERS^^");
 	   
 	  JSONINFOPARCING jsoninfoparcing = new JSONINFOPARCING();
-	jsoninfoparcing.parsetoRemove();
+	jsoninfoparcing.parsetoRemoveCustomer();
+	
+	JSONINFOPARCING.printCustomers();
+	System.out.println("^^&NEW CUSTOMER LIST^^");
+	//  
 	//  atMyservice.removeACustomer();
       	//SetToJsonORService setToJsonORService = new SetToJsonORService();
 		//setToJsonORService.parceToCustomer();
       	//atMyservice.removeACustomer();
       	//SetToJsonORService.printC();
    }
-    else if (choice == viewer.EXIT)
-      System.out.println("Goodbye.");
-  }
-  
-
-
+   if (choice == viewer.SIX){
+	   
+	  JSONINFOPARCING.printItems(); 
+	
+   }
+   if (choice == viewer.SEVEN){
+	   JSONINFOPARCING jsoninfoparcing = new JSONINFOPARCING();
+	   jsoninfoparcing.parsetoEditCustomer();
+	
+   }
+	  
+     if (choice == viewer.EIGHT) {
+    	 JSONINFOPARCING.printOrders();
+    }
+     if (choice == viewer.NINE) {
+    	 System.out.print("List of orders with customer names");
+    	 JSONINFOPARCING.printOrders();
+    	 JSONINFOPARCING.ListOrdersByCustomer();
+    }
+     if (choice == viewer.TEN) {
+    	 JSONINFOPARCING jsoninfoparcing2 = new JSONINFOPARCING();
+  	   jsoninfoparcing2.EditCustomerOrder();
 }
+}
+}
+
