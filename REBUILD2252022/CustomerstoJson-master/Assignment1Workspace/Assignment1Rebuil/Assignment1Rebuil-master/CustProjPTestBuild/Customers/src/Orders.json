@@ -2,23 +2,23 @@
   "1": {
     "id3": 1,
     "customerFirst": "harry",
-    "customerLast": "cha",
+    "customerLast": "customerLast",
     "customerZip": 554,
-    "Items": "car"
+    "Items": "van"
   },
   "2": {
     "id3": 2,
     "customerFirst": "jerry",
-    "customerLast": "larry",
+    "customerLast": "customerLast",
     "customerZip": 4345,
-    "Items": "hat"
+    "Items": "house"
   },
   "3": {
     "id3": 3,
     "customerFirst": "johs",
-    "customerLast": "styes",
+    "customerLast": "customerLast",
     "customerZip": 4553,
-    "Items": "car"
+    "Items": "van"
   },
   "4": {
     "id3": 4,
@@ -37,16 +37,16 @@
   "6": {
     "id3": 6,
     "customerFirst": "josh",
-    "customerLast": "styles",
+    "customerLast": "customerLast",
     "customerZip": 234234,
-    "Items": "car"
+    "Items": "van"
   },
   "7": {
     "id3": 7,
     "customerFirst": "josh",
-    "customerLast": "styles",
+    "customerLast": "customerLast",
     "customerZip": 234234,
-    "Items": "bike"
+    "Items": "baskerball"
   },
   "8": {
     "id3": 8,
@@ -54,5 +54,12 @@
     "customerLast": "styles",
     "customerZip": 234234,
     "Items": "sombrero"
+  },
+  "9": {
+    "id3": 9,
+    "customerFirst": "harry",
+    "customerLast": "cha",
+    "customerZip": 554,
+    "Items": "house"
   }
 }

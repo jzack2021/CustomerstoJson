@@ -20,8 +20,8 @@ public class ordersController {
 		this.OrdersService=OrdersService2;
 	}
 
-	public void ordersController(OrdersDao dao4) {
-		this.dao3=dao4;
+	public void ordersController(OrdersDao dao3) {
+		this.dao3=dao3;
 	}
 	
 	public void ordersController(Orders Orders) {

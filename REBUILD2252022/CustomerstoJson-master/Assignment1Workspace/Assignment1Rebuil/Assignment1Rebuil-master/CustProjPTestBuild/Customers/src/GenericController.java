@@ -123,6 +123,8 @@ public void executeChoice (int choice) throws FileNotFoundException{
      if (choice == viewer.TEN) {
     	 JSONINFOPARCING jsoninfoparcing2 = new JSONINFOPARCING();
   	   jsoninfoparcing2.EditCustomerOrder();
+  	  
+  	   jsoninfoparcing2.replaceItemInOrder();
 }
 }
 }

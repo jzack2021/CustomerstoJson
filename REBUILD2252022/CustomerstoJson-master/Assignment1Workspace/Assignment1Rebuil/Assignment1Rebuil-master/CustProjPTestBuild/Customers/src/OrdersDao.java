@@ -17,7 +17,7 @@ import java.util.Map;
 
 public class OrdersDao<IDType, T extends Serializable> {
 	private GenericOrdersSetDAO<IDType,Orders> OrdersDao;
-	
+	Orders Orders;
 	
 	public OrdersDao() {
 		Type t = new TypeToken<Map<Long, Orders>>(){}.getType(); 
@@ -29,9 +29,9 @@ public class OrdersDao<IDType, T extends Serializable> {
 		OrdersDao = new JsonDao<>(filename,t); 
 	}
 	
-	public OrdersDao(GenericOrdersSetDAO<IDType,Orders> dao) {
+	public OrdersDao(GenericOrdersSetDAO<IDType,Orders> dao3) {
 		
-		OrdersDao = dao;
+		OrdersDao = dao3;
 		
 	}
 	public GenericOrdersSetDAO<IDType,Orders> getOrdersDao() {

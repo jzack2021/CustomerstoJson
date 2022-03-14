@@ -35,6 +35,8 @@ public class JSONINFOPARCING {
 	OrdersDao dao3;
 	CustomersDao dao;
 	//variables
+
+	static boolean runCode = false;
 	static boolean customerFirstbool=false;
 	static boolean customerLastbool=false;
 	static boolean isItem=false;
@@ -67,14 +69,20 @@ public class JSONINFOPARCING {
 		customerZip = 0;
 		Customer Customer = new Customer();
 		this.dao = new CustomersDao();
-		
+		this.dao3 = new OrdersDao();
 		id = 0L;
 	}
 	
 	
 	public JSONINFOPARCING(CustomersDao dao) {
 		this.dao = dao;
+		
 	}
+	
+	public JSONINFOPARCING(OrdersDao dao3) {
+		this.dao3=dao3;
+	}
+	
 	
 	//called on #4 prints ORDERS list
 	public static void printOrders()throws FileNotFoundException{
@@ -171,9 +179,9 @@ public class JSONINFOPARCING {
             }
      
 	
-	public void EditCustomerOrder()throws FileNotFoundException{
+	public  void EditCustomerOrder()throws FileNotFoundException{
 		
-
+runCode=false;
 
 		 var is = new FileInputStream("C:\\Users\\jzack\\REBUILD2252022\\CustomerstoJson-master\\Assignment1Workspace\\Assignment1Rebuil\\Assignment1Rebuil-master\\CustProjPTestBuild\\Customers\\src\\Orders.json");	
 		
@@ -208,21 +216,21 @@ public class JSONINFOPARCING {
 
                     if (event == JsonParser.Event.KEY_NAME) {
 
-                 	
                  	   
                         switch (parser.getString()) {
 	
                        
                         
                         case "id3":
-                       	 customerFirstbool=false;
-                            customerLastbool=false;
+
+                        	 
                             parser.next();
                         //    System.out.print("Customer #");
                          //   System.out.printf("%d" ,parser.getInt());
                          //   System.out.println("");
+                            
                             break;
-                        
+                        //skip to next
                         
                         
                         case "customerFirst":
@@ -235,6 +243,7 @@ public class JSONINFOPARCING {
                                 if (first.equalsIgnoreCase(key1)){
                                	 customerFirstbool=true;
                                 }
+                                //matches customer first name
                                 break;
 
                             case "customerLast":
@@ -245,6 +254,7 @@ public class JSONINFOPARCING {
                                 last=parser.getString();
                                 if (last.equalsIgnoreCase(key2)){
                                	 customerLastbool=true;
+                               	 //matches customer last nma
                                 }
                                 break;
 
@@ -260,114 +270,27 @@ public class JSONINFOPARCING {
                                 parser.next();
                                if (customerFirstbool)
                                	if (customerLastbool){
+                               		runCode=true;
+                               		
                                 System.out.print("CUSTOMERS ITEM ");
                                 System.out.printf(parser.getString());
                               //  System.out.println("");
                                 System.out.println("");
                                 }
+                               customerFirstbool=false;
+                               customerLastbool=false;
                                 break;
                    
                         }
-                       
+                     
                        
                     }
+                }  if(!runCode) {
+             	   System.out.println("Does not match customer name");
                 }
             }
         }
-        System.out.println("Which Item do you want to replace??");
-        String Item;
-        Item=in.next();
-        System.out.println("With what item??");
-        String newItem;
-        newItem=in.next();
-        in.close();
-        
-        var parser2 = factory.createParser(is, StandardCharsets.UTF_8);
        
-	
-
-		 
-		 parser2.next();
-	        //set up to get to the switch statement
-	        while (parser2.hasNext()) {
-
-	            // starting object
-	            var event1 = parser2.next();
-
-	            if (event1 == JsonParser.Event.START_OBJECT) {
-
-	                while (parser2.hasNext()) {
-
-	                    var event = parser2.next();
-
-	                    if (event == JsonParser.Event.KEY_NAME) {
-
-	                 	
-	                 	   
-	                        switch (parser.getString()) {
-	
-                      
-                       
-                       case "id3":
-                      	isItem=false;
-                           parser2.next();
-                       id2=parser2.getInt();
-                           //    System.out.print("Customer #");
-                        //   System.out.printf("%d" ,parser.getInt());
-                        //   System.out.println("");
-                           break;
-                       
-                       
-                       
-                       case "customerFirst":
-                               parser2.next();
-                               	//	System.out.print("Customer First ");
-                             //  System.out.printf(parser.getString());
-                               //		System.out.println("");
-                               
-                               first =parser2.getString();
-                           
-
-                           case "customerLast":
-                               parser2.next();
-                             //  System.out.print("Customer Last ");
-                             //  System.out.printf(parser.getString());
-                             //  System.out.println("");
-                               last=parser2.getString();
-                               if (last.equalsIgnoreCase(key2)){
-                              	 customerLastbool=true;
-                               }
-                               break;
-
-                           case "customerZip":
-                               parser2.next();
-                               Zip=parser2.getInt();
-                             //  System.out.print("Customer Zipcode ");
-                              // System.out.printf("%d" ,parser.getInt());
-                             //  System.out.println("");
-                              // System.out.println("");
-                               break;
-
-                           case "Items":
-                               parser2.next();
-                               ItemFromFile=parser2.getString();
-                               if (Item.equalsIgnoreCase(ItemFromFile)){
-                            	   id=Long.valueOf(id2.longValue());
-                               Orders ord=new Orders(id, first, last, Zip, newItem);
-                            	   dao3.update(id,  ord);
-                                 }
-                               
-                               
-                                 break;
-                            
-                  
-                       }
-        
-                   }
-               }
-           }
-       }
-        
         
         
        
@@ -376,7 +299,115 @@ public class JSONINFOPARCING {
 	
 	
 	
-	
+	public void replaceItemInOrder()throws FileNotFoundException{
+		
+	if (runCode) {
+		 var is = new FileInputStream("C:\\Users\\jzack\\REBUILD2252022\\CustomerstoJson-master\\Assignment1Workspace\\Assignment1Rebuil\\Assignment1Rebuil-master\\CustProjPTestBuild\\Customers\\src\\Orders.json");	
+			
+		 var factory = Json.createParserFactory(null);
+		 
+		 var parser = factory.createParser(is, StandardCharsets.UTF_8);
+		 
+		 Scanner in = new Scanner(System.in);
+		
+		System.out.println("Which Item do you want to replace??");
+	        String Item;
+	        Item=in.next();
+	        System.out.println("With what item??");
+	        String newItem;
+	        newItem=in.next();
+	        in.close();
+	     
+
+			 
+			 parser.next();
+		        //set up to get to the switch statement
+		        while (parser.hasNext()) {
+
+		            // starting object
+		            var event1 = parser.next();
+
+		            if (event1 == JsonParser.Event.START_OBJECT) {
+
+		                while (parser.hasNext()) {
+
+		                    var event = parser.next();
+
+		                    if (event == JsonParser.Event.KEY_NAME) {
+
+		                 	
+		                 	   
+		                        switch (parser.getString()) {
+		
+	                      
+	                       
+	                       case "id3":
+	                      	isItem=false;
+	                           parser.next();
+	                       id2=parser.getInt();
+	                           //    System.out.print("Customer #");
+	                        //   System.out.printf("%d" ,parser.getInt());
+	                        //   System.out.println("");
+	                           break;
+	                       
+	                       
+	                       
+	                       case "customerFirst":
+	                               parser.next();
+	                               	//	System.out.print("Customer First ");
+	                             //  System.out.printf(parser.getString());
+	                               //		System.out.println("");
+	                               
+	                               first =parser.getString();
+	                           
+
+	                           case "customerLast":
+	                               parser.next();
+	                             //  System.out.print("Customer Last ");
+	                             //  System.out.printf(parser.getString());
+	                             //  System.out.println("");
+	                               last=parser.getString();
+	                               if (last.equalsIgnoreCase(key2)){
+	                              	 customerLastbool=true;
+	                               }
+	                               break;
+
+	                           case "customerZip":
+	                               parser.next();
+	                               Zip=parser.getInt();
+	                             //  System.out.print("Customer Zipcode ");
+	                              // System.out.printf("%d" ,parser.getInt());
+	                             //  System.out.println("");
+	                              // System.out.println("");
+	                               break;
+
+	                           case "Items":
+	                               parser.next();
+	                               ItemFromFile=parser.getString();
+	                               if (Item.equalsIgnoreCase(ItemFromFile)){
+	                            	   id=Long.valueOf(id2.longValue());
+	                            	   setService OrdersService2 = new SetToJsonORService();
+	                               Orders ord=new Orders(id, first, last, Zip, newItem);
+	                              
+	                             
+	                               
+	                            	   dao3.update(id,  ord);
+	                                 }
+	                               
+	                               
+	                                 break;
+	                            
+	                  
+	                       }
+	        
+	                   }
+	               }
+	           }
+	       }
+	        
+	}
+		
+	}
     
 	public static void ListOrdersByCustomer()throws FileNotFoundException{
 		
@@ -740,6 +771,7 @@ public class JSONINFOPARCING {
 	                                    		  String newLast = in.next();
 	                                    		  	Customer aCustomer = new Customer(id,newFirst, newLast, Zip); 
 	                                    		  	System.out.println("haha" + aCustomer.getCustomerZip());
+	                                    		  	//tester to make sure code worked
 	                                    		  	setService atMyservice2 = new SetToJsonORService();
 	                                    		 
 	                                    		 String filename = "Customers.json";
@@ -900,79 +932,5 @@ public class JSONINFOPARCING {
 
         
     
-	
-	public void parceToCustomer()throws FileNotFoundException{
-    
-   	
-		 var is = new FileInputStream("C:\\Users\\jzack\\REBUILD2252022\\CustomerstoJson-master\\Assignment1Workspace\\Assignment1Rebuil\\Assignment1Rebuil-master\\CustProjPTestBuild\\Customers\\src\\Customers.json");
-		 var factory = Json.createParserFactory(null);
-		 var parser = factory.createParser(is, StandardCharsets.UTF_8);
-		 
-		 
-		 
-	
-	    if (!parser.hasNext() && parser.next() != JsonParser.Event.START_ARRAY) {
-
-           return;
-       }
-	    
-	    
-	    
-   
-       while (parser.hasNext()) {
-      	 
-      	var event = parser.next();
-          
-      	   
-      	   
-      	   if (event == JsonParser.Event.START_OBJECT) {
-
-      
-           	 
-      		System.out.println("Enter name");
-     	  String name = in.next();	
-           	 
-           	 while (parser.hasNext()) {
-
-                     event = parser.next();
-                     
-                     
-                     
-
-                     if (event == JsonParser.Event.KEY_NAME) {
-                  	  
-                   	  
-                   	    
-                  switch (parser.getString()) {
-                  
-                  case "customerFirst":
-               	   
-                  parser.next();
-                  	
-                  String key = parser.getString();
-                 	
-                	if (name.equalsIgnoreCase(key)) {
-                		
-                		
-                	
-                		
-                	}
-                  
-                  
-                  System.out.println("");
-               	
-                  break;
-                  }
-       
-   }
-      }
-	
-             }
-       } 
-	
-
-        
-    }
-
 	
 }
