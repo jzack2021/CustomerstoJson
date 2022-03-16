@@ -1,0 +1,23 @@
+{
+  "1": {
+    "id3": 1,
+    "customerFirst": "wheels",
+    "customerLast": "hank",
+    "customerZip": 3423,
+    "Items": "tires"
+  },
+  "2": {
+    "id3": 2,
+    "customerFirst": "green",
+    "customerLast": "customerLast",
+    "customerZip": 43234,
+    "Items": "penci;"
+  },
+  "3": {
+    "id3": 3,
+    "customerFirst": "charlie",
+    "customerLast": "customerLast",
+    "customerZip": 234342,
+    "Items": "green"
+  }
+}
